@@ -1,5 +1,14 @@
 {
-    "local_file": "/home/you/Documents/resume.pdf",
-    "drive_folder_id": "your-folder-id-here",
-    "drive_file_name": "resume.pdf"
+  "files": [
+    {
+      "local_file": "/path/to/file1.pdf",
+      "drive_folder_id": "abc123",
+      "drive_file_name": "file1.pdf"
+    },
+    {
+      "local_file": "/path/to/file2.pdf",
+      "drive_folder_id": "abc123",
+      "drive_file_name": "file2.pdf"
+    }
+  ]
 }

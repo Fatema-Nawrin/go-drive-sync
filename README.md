@@ -1,6 +1,6 @@
 # File Sync
 
-A Go application that synchronizes a local file with Google Drive. It automatically creates or updates files in a specified Google Drive folder.
+It is a simple command-line tool that simplifies the process of keeping local file synchronized  with Google Drive. 
 
 ## Features
 
@@ -35,11 +35,13 @@ Create a `config.json` file following config.json.example
 ```bash
 go build
 ./file-sync
+# Sync only a specific file
+./file-sync -file "file1.pdf"
 ```
 
-3. **First run only**: 
+**First run only**: 
    - Open the provided URL in your browser
    - Grant permission to access Google Drive
    - Copy the authorization code and paste it in the terminal
 
-4. Subsequent runs will use the cached token automatically
+Subsequent runs will use the cached token automatically

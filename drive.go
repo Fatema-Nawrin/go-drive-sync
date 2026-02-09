@@ -38,15 +38,14 @@ func findFileInFolder(srv *drive.Service, fileName, folderID string) (string, er
 
 	fmt.Printf("Found %d files\n", len(fileList.Items))
 	if len(fileList.Items) > 0 {
-		fmt.Printf("Found file: %s (ID: %s)\n", fileList.Items[0].Title, fileList.Items[0].Id)
 		return fileList.Items[0].Id, nil
 	}
 
 	return "", nil
 }
 
-func syncFile(srv *drive.Service, config *Config) error {
-	fileID, err := findFileInFolder(srv, config.DriveFileName, config.DriveFolderId)
+func syncFile(srv *drive.Service, config *FileConfig) error {
+	fileID, err := findFileInFolder(srv, config.DriveFileName, config.DriveFolderID)
 	if err != nil {
 		return err
 	}
@@ -68,7 +67,7 @@ func syncFile(srv *drive.Service, config *Config) error {
 		fmt.Println("File doesn't exist, creating...")
 		fileMetadata := &drive.File{
 			Title:   config.DriveFileName,
-			Parents: []*drive.ParentReference{{Id: config.DriveFolderId}},
+			Parents: []*drive.ParentReference{{Id: config.DriveFolderID}},
 		}
 		_, err = srv.Files.Insert(fileMetadata).Media(file).Do()
 		if err != nil {

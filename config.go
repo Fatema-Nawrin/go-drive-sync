@@ -6,10 +6,15 @@ import (
 	"os"
 )
 
-type Config struct {
+type FileConfig struct {
 	LocalFile     string `json:"local_file"`
-	DriveFolderId string `json:"drive_folder_id"`
+	DriveFolderID string `json:"drive_folder_id"`
 	DriveFileName string `json:"drive_file_name"`
+}
+
+// Config holds the application configuration
+type Config struct {
+	Files []FileConfig `json:"files"`
 }
 
 const (
